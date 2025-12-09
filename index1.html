@@ -1,0 +1,55 @@
+<h2>Signup</h2>
+<form id="signupForm">
+    <input type="text" placeholder="Enter Name">
+    <input type="email" placeholder="Enter Email">
+    <input type="password" placeholder="Enter Password">
+    <button type="submit">Signup</button>
+</form>
+
+<h2>Login</h2>
+<form id="loginForm">
+    <input type="email" placeholder="Enter Email">
+    <input type="password" placeholder="Enter Password">
+    <button type="submit">Login</button>
+</form>
+
+<h2 id="result"></h2>
+
+<script>
+    let users = [];
+
+    let signupForm = document.getElementById("signupForm");
+    let loginForm = document.getElementById("loginForm");
+    let output = document.getElementById("result");
+    signupForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let obj = {
+            name: signupForm[0].value,
+            email: signupForm[1].value,
+            password: signupForm[2].value
+        };
+
+        users.push(obj);
+        console.log("Users List:", users);
+
+        signupForm.reset();
+        alert("Signup Successful!");
+    });
+    loginForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let email = loginForm[0].value;
+        let password = loginForm[1].value;
+
+        let matchedUser = users.find((u) => u.email === email && u.password === password);
+
+        if (matchedUser) {
+            output.innerText = `Welcome ${matchedUser.name} 🎉`;
+        } else {
+            output.innerText = "❌ User Not Found";
+        }
+
+        loginForm.reset();
+    });
+</script>
