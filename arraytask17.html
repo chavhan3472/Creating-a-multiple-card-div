@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>This The h1</h1>
+</body>
+<script>
+    let arr = ["apple", "banana", "mango", "banana", 3, 4, 5, 6, true, {
+        name: "object"
+    }];
+    let str = []
+    let num = []
+    let bool = []
+    let obj = []
+    let newarr = []
+    for (let i = 1; i < arr.length; i++) {
+        if (typeof(arr[i]) == "number") {
+            num.push(arr[i])
+
+        } else if (typeof(arr[i]) == "string") {
+            str.push(arr[i])
+
+        } else if (typeof(arr[i]) == "boolean") {
+            bool.push(arr[i])
+
+        } else {
+            obj.push(arr[i])
+
+        }
+
+
+    }
+    console.log("String", str)
+    console.log("Number", num)
+    console.log("Boolean", bool)
+    console.log("object", obj)
+    newarr.push(str, num, bool, obj)
+    console.log(newarr)
+</script>
+
+</html>
